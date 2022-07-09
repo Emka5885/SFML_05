@@ -145,12 +145,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AssetManager.cpp" />
     <ClCompile Include="Kurs_12.cpp" />
     <ClCompile Include="StateMachine.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AssetManager.hpp" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="State.hpp" />
     <ClInclude Include="StateMachine.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Kurs_12.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
