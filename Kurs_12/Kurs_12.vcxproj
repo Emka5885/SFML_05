@@ -149,13 +149,16 @@
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="inputManager.cpp" />
     <ClCompile Include="Kurs_12.cpp" />
+    <ClCompile Include="SplashState.cpp" />
     <ClCompile Include="StateMachine.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AssetManager.hpp" />
+    <ClInclude Include="DEFINITIONS.hpp" />
     <ClInclude Include="Game.hpp" />
     <ClInclude Include="inputManager.hpp" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="SplashState.hpp" />
     <ClInclude Include="State.hpp" />
     <ClInclude Include="StateMachine.hpp" />
   </ItemGroup>

@@ -5,10 +5,11 @@
 //Flappy Bird
 #include <iostream>
 #include "Game.hpp"
+#include "DEFINITIONS.hpp"
 
 int main()
 {
-    MyNamespace::Game(800, 600, "Flappy Bird");
+    MyNamespace::Game(SCREEN_WIDTH, SCREEN_HEIGHT, "Flappy Bird");
 
     return EXIT_SUCCESS;
 }
