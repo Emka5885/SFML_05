@@ -1,4 +1,5 @@
 #include "MainMenuState.hpp"
+#include "GameState.hpp"
 #include <sstream>
 #include "DEFINITIONS.hpp"
 
@@ -39,7 +40,7 @@ namespace MyNamespace
 
 			if (_data->input.isSpriteClicked(_playButton, sf::Mouse::Left, _data->window))
 			{
-				std::cout << "Go To Game Screen" << std::endl;
+				_data->machine.AddState(StateRef(new GameState(_data)), true);
 			}
 		}
 	}
