@@ -152,6 +152,7 @@
     <ClCompile Include="inputManager.cpp" />
     <ClCompile Include="Kurs_12.cpp" />
     <ClCompile Include="MainMenuState.cpp" />
+    <ClCompile Include="Pipe.cpp" />
     <ClCompile Include="SplashState.cpp" />
     <ClCompile Include="StateMachine.cpp" />
   </ItemGroup>
@@ -163,6 +164,7 @@
     <ClInclude Include="GameState.hpp" />
     <ClInclude Include="inputManager.hpp" />
     <ClInclude Include="MainMenuState.hpp" />
+    <ClInclude Include="Pipe.hpp" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="SplashState.hpp" />
     <ClInclude Include="State.hpp" />
