@@ -25,6 +25,8 @@ namespace MyNamespace
 		sf::Sprite _background;
 
 		Pipe* pipe;
+
+		sf::Clock clock;
 	};
 }
 

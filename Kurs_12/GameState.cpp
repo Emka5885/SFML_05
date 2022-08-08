@@ -34,9 +34,7 @@ namespace MyNamespace
 			}
 			if (_data->input.isSpriteClicked(_background, sf::Mouse::Left, _data->window))
 			{
-				pipe->SpawnInvisiblePipe();
-				pipe->SpawnBottomPipe();
-				pipe->SpawnTopPipe();
+				
 			}
 		}
 	}
@@ -44,6 +42,15 @@ namespace MyNamespace
 	void GameState::Update(float dt)
 	{
 		pipe->MovePipes(dt);
+
+		if (clock.getElapsedTime().asSeconds() > PIPE_SPAWN_FREQUENCY)
+		{
+			pipe->SpawnInvisiblePipe();
+			pipe->SpawnBottomPipe();
+			pipe->SpawnTopPipe();
+
+			clock.restart();
+		}
 	}
 
 	void GameState::Draw(float dt)
