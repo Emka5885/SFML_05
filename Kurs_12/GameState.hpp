@@ -5,6 +5,7 @@
 #include "Game.hpp"
 #include "Pipe.hpp"
 #include "Land.hpp"
+#include "Bird.hpp"
 
 namespace MyNamespace
 {
@@ -27,6 +28,7 @@ namespace MyNamespace
 
 		Pipe* pipe;
 		Land* land;
+		Bird* bird;
 
 		sf::Clock clock;
 	};
