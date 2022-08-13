@@ -41,7 +41,7 @@ namespace MyNamespace
 			}
 			if (_data->input.isSpriteClicked(_background, sf::Mouse::Left, _data->window))
 			{
-				
+				bird->Tap();
 			}
 		}
 	}
@@ -62,6 +62,7 @@ namespace MyNamespace
 			clock.restart();
 		}
 		bird->Animate(dt);
+		bird->Update(dt);
 	}
 
 	void GameState::Draw(float dt)
