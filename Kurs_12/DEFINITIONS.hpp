@@ -38,3 +38,10 @@
 #define FLYING_DURATION 0.25f
 
 #define ROTATION_SPEED 100.0f
+
+enum GameStates   //Enum to rodzaj danych, który zawiera ju¿ listê wartoœci, jak¹ mo¿na nadaæ zmiennej w³asnego typu enum.
+{
+	eReady,
+	ePlaying,
+	eGameOver
+};
