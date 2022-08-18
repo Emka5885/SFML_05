@@ -45,3 +45,5 @@ enum GameStates   //Enum to rodzaj danych, który zawiera ju¿ listê wartoœci, jak
 	ePlaying,
 	eGameOver
 };
+
+#define FLASH_SPEED 1500.0f

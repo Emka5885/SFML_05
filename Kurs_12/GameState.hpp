@@ -7,6 +7,7 @@
 #include "Land.hpp"
 #include "Bird.hpp"
 #include "Collision.hpp"
+#include "Flash.hpp"
 
 namespace MyNamespace
 {
@@ -31,6 +32,7 @@ namespace MyNamespace
 		Land* land;
 		Bird* bird;
 		Collision collision;
+		Flash* flash;
 
 		sf::Clock clock;
 

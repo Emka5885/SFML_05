@@ -25,6 +25,7 @@ namespace MyNamespace
 		pipe = new Pipe(_data);
 		land = new Land(_data);
 		bird = new Bird(_data);
+		flash = new Flash(_data);
 
 		_background.setTexture(this->_data->assets.GetTexture("Game Background"));
 
@@ -96,6 +97,11 @@ namespace MyNamespace
 				}
 			}
 		}
+
+		if (GameStates::eGameOver == _gameState)
+		{
+			flash->Show(dt);
+		}
 	}
 
 	void GameState::Draw(float dt)
@@ -106,6 +112,8 @@ namespace MyNamespace
 		pipe->DrawPipes();
 		land->DrawLand();
 		bird->Draw();
+
+		flash->Draw();
 
 		_data->window.display();
 	}
