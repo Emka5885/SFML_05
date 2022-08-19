@@ -21,6 +21,7 @@ namespace MyNamespace
 		_data->assets.LoadTexture("Bird Frame 2", BIRD_FRAME_2_FILEPATH);
 		_data->assets.LoadTexture("Bird Frame 3", BIRD_FRAME_3_FILEPATH);
 		_data->assets.LoadTexture("Bird Frame 4", BIRD_FRAME_4_FILEPATH);
+		_data->assets.LoadTexture("Scoring Pipe", SCORING_PIPE_FILEPATH);
 
 		pipe = new Pipe(_data);
 		land = new Land(_data);
@@ -28,6 +29,8 @@ namespace MyNamespace
 		flash = new Flash(_data);
 
 		_background.setTexture(this->_data->assets.GetTexture("Game Background"));
+
+		_score = 0;
 
 		_gameState = GameStates::eReady;
 	}
@@ -72,6 +75,7 @@ namespace MyNamespace
 				pipe->SpawnInvisiblePipe();
 				pipe->SpawnBottomPipe();
 				pipe->SpawnTopPipe();
+				pipe->SpawnScoringPipe();
 
 				clock.restart();
 			}
@@ -94,6 +98,23 @@ namespace MyNamespace
 				if (collision.CheckSpriteCollision(bird->GetSprite(), 0.625f, pipeSprites.at(i), 1.0f))
 				{
 					_gameState = GameStates::eGameOver;
+				}
+			}
+
+			if (GameStates::ePlaying == _gameState)
+			{
+				std::vector<sf::Sprite>& scoringSprites = pipe->GetScoringSprites();
+
+				for (int i = 0; i < scoringSprites.size(); i++)
+				{
+					if (collision.CheckSpriteCollision(bird->GetSprite(), 0.625f, scoringSprites.at(i), 1.0f))
+					{
+						_score++;
+
+						std::cout << _score << std::endl;
+
+						scoringSprites.erase(scoringSprites.begin() + i);
+					}
 				}
 			}
 		}

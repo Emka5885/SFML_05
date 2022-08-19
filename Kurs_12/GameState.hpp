@@ -37,6 +37,8 @@ namespace MyNamespace
 		sf::Clock clock;
 
 		int _gameState;
+
+		int _score;
 	};
 }
 
