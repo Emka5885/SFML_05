@@ -1,10 +1,10 @@
-#include "HUD.hpp"
+#include "HUD.hpp"   //"HUD" - Head Up Display
 
 #include <string>
 
 namespace MyNamespace
 {
-	HUD::HUD(GameDataRef data)
+	HUD::HUD(GameDataRef data) : _data(data)
 	{
 		_scoreText.setFont(_data->assets.GetFont("Flappy Font"));
 
