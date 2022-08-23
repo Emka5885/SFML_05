@@ -7,7 +7,7 @@
 
 namespace MyNamespace
 {
-	GameOverState::GameOverState(GameDataRef data) : _data(data)
+	GameOverState::GameOverState(GameDataRef data, int score) : _data(data), _score(score)
 	{
 
 	}
@@ -26,6 +26,20 @@ namespace MyNamespace
 		_gameOverContainer.setPosition((_data->window.getSize().x / 2) - (_gameOverContainer.getGlobalBounds().width / 2), (_data->window.getSize().y / 2) - (_gameOverContainer.getGlobalBounds().height / 2));
 		_gameOverTitle.setPosition((_data->window.getSize().x / 2) - (_gameOverTitle.getGlobalBounds().width / 2), _gameOverContainer.getPosition().y - (_gameOverTitle.getGlobalBounds().height * 1.2));
 		_retryButton.setPosition((_data->window.getSize().x / 2) - (_retryButton.getGlobalBounds().width / 2), _gameOverContainer.getPosition().y + _gameOverContainer.getGlobalBounds().height + (_retryButton.getGlobalBounds().height * 0.2));
+	
+		_scoreText.setFont(_data->assets.GetFont("Flappy Font"));
+		_scoreText.setString(std::to_string(_score));
+		_scoreText.setCharacterSize(56);
+		_scoreText.setFillColor(sf::Color::White);
+		_scoreText.setOrigin(_scoreText.getGlobalBounds().width / 2, _scoreText.getGlobalBounds().height / 2);
+		_scoreText.setPosition(_data->window.getSize().x / 10 * 7.25, _data->window.getSize().y / 2.15);
+
+		_hightScoreText.setFont(_data->assets.GetFont("Flappy Font"));
+		_hightScoreText.setString(std::to_string(_hightScore));
+		_hightScoreText.setCharacterSize(56);
+		_hightScoreText.setFillColor(sf::Color::White);
+		_hightScoreText.setOrigin(_hightScoreText.getGlobalBounds().width / 2, _hightScoreText.getGlobalBounds().height / 2);
+		_hightScoreText.setPosition(_data->window.getSize().x / 10 * 7.25, _data->window.getSize().y / 1.78);
 	}
 
 	void GameOverState::HandleInput()
@@ -58,6 +72,8 @@ namespace MyNamespace
 		_data->window.draw(_gameOverTitle);
 		_data->window.draw(_gameOverContainer);
 		_data->window.draw(_retryButton);
+		_data->window.draw(_scoreText);
+		_data->window.draw(_hightScoreText);
 
 		_data->window.display();
 	}
