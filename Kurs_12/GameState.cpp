@@ -14,6 +14,23 @@ namespace MyNamespace
 
 	void GameState::Init()
 	{
+		if (!_hitSoundBuffer.loadFromFile(HIT_SOUNDS_FILEPATH))
+		{
+			std::cout << "Error loading Hit Sound Effect" << std::endl;
+		}
+		if (!_wingSoundBuffer.loadFromFile(WING_SOUNDS_FILEPATH))
+		{
+			std::cout << "Error loading Wing Sound Effect" << std::endl;
+		}
+		if (!_pointSoundBuffer.loadFromFile(POINT_SOUNDS_FILEPATH))
+		{
+			std::cout << "Error loading Point Sound Effect" << std::endl;
+		}
+
+		_hitSound.setBuffer(_hitSoundBuffer);
+		_wingSound.setBuffer(_wingSoundBuffer);
+		_pointSound.setBuffer(_pointSoundBuffer);
+
 		_data->assets.LoadTexture("Game Background", GAME_BACKGROUND_FILEPATH);
 		_data->assets.LoadTexture("Pipe Up", PIPE_UP_FILEPATH);
 		_data->assets.LoadTexture("Pipe Down", PIPE_DOWN_FILEPATH);
@@ -55,6 +72,8 @@ namespace MyNamespace
 				{
 					_gameState = GameStates::ePlaying;
 					bird->Tap();
+
+					_wingSound.play();
 				}
 			}
 		}
@@ -94,6 +113,8 @@ namespace MyNamespace
 					_gameState = GameStates::eGameOver;
 
 					clock.restart();
+
+					_hitSound.play();
 				}
 			}
 
@@ -106,6 +127,8 @@ namespace MyNamespace
 					_gameState = GameStates::eGameOver;
 
 					clock.restart();
+
+					_hitSound.play();
 				}
 			}
 
@@ -122,6 +145,8 @@ namespace MyNamespace
 						hud->UpdateScore(_score);
 
 						scoringSprites.erase(scoringSprites.begin() + i);
+
+						_pointSound.play();
 					}
 				}
 			}
