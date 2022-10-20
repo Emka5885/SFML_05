@@ -11,6 +11,7 @@ int main()
 {
     MyNamespace::Game(SCREEN_WIDTH, SCREEN_HEIGHT, "Flappy Bird");
 
+    system("PAUSE");
     return EXIT_SUCCESS;
 }
 
